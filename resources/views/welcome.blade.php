@@ -6,15 +6,24 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body>
+    {{-- Need to make it responsive --}}
+
+    {{-- Navigation --}}
     <nav class="bg-blue-300 flex justify-center flex-wrap h-16 gap-6 text-black font-medium">
         <a class="hover:text-white" href="/">Home</a>
         <a class="hover:text-white" href="https://google.com" target="_blank" rel="noopener noreferrer">Google</a>
     </nav>
+
+    <div class="text-black px-6 py-4">
+        <h1 class="text-2xl font-semibold text-center">Current Weather</h1>
+    </div>
+
+    {{-- Data List --}}
     <div>
       <ul class="divide-y divide-gray-200">
         <li class="flex gap-6 p-4">
           <span class="font-medium text-gray-800">Current Temperature:</span>
-          <span class="text-gray-600">{{$current->temperature_2m}}°C</span>
+          <span class="text-gray-600">{{$current->temperature_2m ?? N/A}}°C</span>
         </li>
         <li class="flex gap-6 p-4">
           <span class="font-medium text-gray-800">Current Condition</span>
@@ -31,6 +40,8 @@
       </ul>
     </div>
 </body>
+
+{{-- Footer --}}
 <footer class="flex flex-col space-y-10 justify-center m-10 bg-blue-300">
 
     <nav class="flex justify-center flex-wrap gap-6 text-black font-medium">
