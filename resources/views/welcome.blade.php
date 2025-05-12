@@ -23,7 +23,7 @@
       <ul class="divide-y divide-gray-200">
         <li class="flex gap-6 p-4">
           <span class="font-medium text-gray-800">Current Temperature:</span>
-          <span class="text-gray-600">{{$current->temperature_2m ?? N/A}}°C</span>
+          <span class="text-gray-600">{{$data['temperature_2m']}}°C</span>
         </li>
         <li class="flex gap-6 p-4">
           <span class="font-medium text-gray-800">Current Condition</span>
@@ -31,11 +31,11 @@
         </li>
         <li class="flex gap-6 p-4">
           <span class="font-medium text-gray-800">Humidity:</span>
-          <span class="text-gray-600">{{$current->relative_humidity_2m}}</span>
+          <span class="text-gray-600">{{$data['relative_humidity_2m']}}</span>
         </li>
         <li class="flex gap-6 p-4">
           <span class="font-medium text-gray-800">Wind Speed:</span>
-          <span class="text-gray-600">{{$current->wind_speed_10m}}km/h</span>
+          <span class="text-gray-600">{{$data['wind_speed_10m']}}km/h</span>
         </li>
       </ul>
     </div>
