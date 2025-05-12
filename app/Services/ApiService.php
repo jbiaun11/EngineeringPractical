@@ -1,15 +1,17 @@
 <?php
 namespace App\Services;
+
 use JsonException;
+use Illuminate\Support\Facades\Http;
 
 
 class ApiService
 {
     // method declaration
-    static public function getWeatherDetails() {
+    static public function getWeatherDetails($latitude, $longitude) {
 
         // use free forecast api
-        $url = 'https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&current=temperature_2m,relative_humidity_2m,wind_speed_10m';
+        $baseUrl = 'https://api.open-meteo.com/v1/forecast?latitude=' . $latitude . '&longitude=' . $longitude . '&current=temperature_2m,relative_humidity_2m,wind_speed_10m';
 
         /*
         TO-DO:
@@ -20,11 +22,10 @@ class ApiService
         */
 
         try {
-            $data = file_get_contents($url);    // read content
-            $object = json_decode($data);     // convert JSON object to PHP object
-            $current = $object->{'current'};  // get current info
+            $response = Http::get($baseUrl);
+            $data = $response->collect('current');
 
-            return $current;
+            return $data;
 
         } catch (JsonException $e) {
             echo "Couldn't retrieve data: " . $e;
