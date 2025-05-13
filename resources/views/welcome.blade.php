@@ -14,6 +14,8 @@
         <a class="hover:text-white" href="https://google.com" target="_blank" rel="noopener noreferrer">Google</a>
     </nav>
 
+    @livewire('create-form')
+
     <div class="text-black px-6 py-4">
         <h1 class="text-2xl font-semibold text-center">Current Weather</h1>
     </div>
